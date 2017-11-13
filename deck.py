@@ -31,7 +31,7 @@ class Deck:
 				if s == 4:
 				    suit = "h"
 					
-				newCard = Card(rank, suit)
+				newCard = card.Card(rank, suit)
 				
 				self.deckArray.append(newCard)
 				count += 1
