@@ -48,3 +48,13 @@ class Deck:
 		dealing = self.deckArray[self.dealt]
 		self.dealt += 1
 		return dealing
+		
+	def removeCard(self, rank, suit):
+		#Find card
+		found = False
+		for c in range(0, len(self.deckArray)):
+			if found == False:
+				if self.deckArray[c].getRank() == rank and self.deckArray[c].getSuit() == suit:
+					self.deckArray.pop(c)
+					found = True
+				
