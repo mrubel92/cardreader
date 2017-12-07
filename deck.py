@@ -1,5 +1,7 @@
-from random import shuffle
 import card
+import random
+from random import shuffle
+import datetime
 
 class Deck:
 	def __init__(self):
@@ -41,8 +43,19 @@ class Deck:
 		for c in range(0, len(self.deckArray)):
 			print(self.deckArray[c].getRank() + self.deckArray[c].getSuit())
 	
-	def shuffleDeck(self):
-		shuffle(self.deckArray)
+	def shuffleDeck(self, seed):
+		
+		random.seed(seed)
+		iterations = random.randint(100, 200)
+		oldDeck = list(self.deckArray)
+		#for x in range(0, iterations):
+		oldDeck = list(self.deckArray)
+		for y in range(0, len(oldDeck)):
+			sysran = random.SystemRandom()
+			sysran.seed(seed * y)
+			deleteNum = sysran.randint(0, len(oldDeck) - 1)
+			self.deckArray[y] = oldDeck[deleteNum]
+			oldDeck.pop(deleteNum)
 		
 	def dealCard(self):
 		dealing = self.deckArray[self.dealt]
@@ -57,4 +70,3 @@ class Deck:
 				if self.deckArray[c].getRank() == inCard.getRank() and self.deckArray[c].getSuit() == inCard.getSuit():
 					self.deckArray.pop(c)
 					found = True
-				
