@@ -379,6 +379,11 @@ class TestHandAnalyzer(unittest.TestCase):
 		hand1 = [card.Card("A", "s"), card.Card("A", "h"), card.Card("J", "c"), card.Card("J", "s"), card.Card("T", "s")]
 		self.assertTrue(handAnalyzer.handAnalyzer(hand1, hand2) == 2)
 		
+		#test two pair v two pair
+		hand2 = [card.Card("7", "s"), card.Card("5", "s"), card.Card("K", "c"), card.Card("7", "d"), card.Card("5", "h")]
+		hand1 = [card.Card("7", "s"), card.Card("6", "s"), card.Card("5", "s"), card.Card("7", "d"), card.Card("5", "h")]
+		self.assertTrue(handAnalyzer.handAnalyzer(hand1, hand2) == 2)
+		
 	def testPair(self):
 		hand1 = [card.Card("A", "s"), card.Card("A", "h"), card.Card("Q", "c"), card.Card("J", "s"), card.Card("T", "s")]
 		hand2 = [card.Card("A", "s"), card.Card("A", "h"), card.Card("Q", "c"), card.Card("J", "s"), card.Card("T", "s")]
