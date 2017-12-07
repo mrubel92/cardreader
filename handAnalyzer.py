@@ -486,9 +486,12 @@ def twoPair(cardArray):
 				if cardArray[a].getRank() == cardArray[b].getRank():
 					if pair1 == 0:
 						pair1 = rank(cardArray[a].getRank())
+						used[a] = True
+						used[b] = True
 					elif pair1 != rank(cardArray[a].getRank()):
 						pair2 = rank(cardArray[a].getRank())
-
+						used[a] = True
+						used[b] = True
 					
 	if pair1 == 0 or pair2 == 0:
 		return [0, 0, 0]
