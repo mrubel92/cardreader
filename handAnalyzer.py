@@ -347,6 +347,7 @@ def pair(cardArray):
 	for a in range(0, len(cardArray)):
 		if a != index1 and a != index2:
 			if rank(cardArray[a].getRank()) > kicker1:
+				kicker3 = kicker2
 				kicker2 = kicker1
 				kicker1 = rank(cardArray[a].getRank())
 			elif rank(cardArray[a].getRank()) > kicker2:
